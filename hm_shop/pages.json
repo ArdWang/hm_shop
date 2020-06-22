@@ -15,6 +15,18 @@
 			"path": "pages/news/news",
 			"style": {}
 		}
+        ,{
+            "path" : "pages/goods/goods",
+            "style" : {
+				"navigationBarTitleText":"商品列表"
+			}
+        }
+        ,{
+            "path" : "components/goods-list/goods-list",
+            "style" : {
+				
+			}
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "white",
