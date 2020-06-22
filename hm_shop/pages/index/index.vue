@@ -59,6 +59,7 @@
 			this.getSwipers()
 			this.getHotGoods()
 		},
+		
 		methods: {
 			//获取轮播图的数据
 			async getSwipers(){

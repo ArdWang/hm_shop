@@ -1,6 +1,7 @@
 <template>
 	<view class="goods_list">
 		<goods-list :goods="goods"></goods-list>
+		<view class="isOver" v-if="flag">......我是有底线得......</view>
 	</view>
 </template>
 
@@ -11,7 +12,8 @@
 		data() {
 			return {
 				pageindex:1,
-				goods:[]
+				goods:[],
+				flag:false
 			}
 		},
 		components:{
@@ -20,13 +22,33 @@
 		onLoad() {
 			this.getGoodsList()
 		},
+		onPullDownRefresh() {
+			console.log("下拉刷新了")
+			this.pageindex = 1
+			this.goods = []
+			this.flag = false
+			
+			setTimeout(()=>{
+				this.getGoodsList(()=>{
+					uni.stopPullDownRefresh()
+				})
+			},1000)
+		},
+		onReachBottom() {
+			console.log(this.goods.length)
+			if(this.goods.length<this.pageindex*10) return this.flag = true
+			console.log("触底了")
+			this.pageindex++
+			this.getGoodsList()
+		},
 		methods: {
 			//获取商品列表得数据
-			async getGoodsList(){
+			async getGoodsList(callBack){
 				const res = await this.$myRequest({
 					url: '/api/getgoods?pageindex='+this.pageindex
 				})
-				this.goods = res.data.message
+				this.goods = [...this.goods, ...res.data.message]
+				callBack && callBack()
 			}
 		}
 	}
@@ -36,4 +58,12 @@
 	.goods_list{
 		background: #eee;
 	}
+	.isOver{
+		width: 100%;
+		height: 50px;
+		line-height: 50px;
+		text-align: center;
+		font-size: 28rpx;
+	}
+	
 </style>
