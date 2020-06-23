@@ -28,6 +28,18 @@
 				
 			}
         }
+        ,{
+            "path" : "pages/contact/contact",
+            "style" : {
+				"navigationBarTitleText":"关于我们"
+			}
+        }
+        ,{
+            "path" : "pages/pics/pics",
+            "style" : {
+				"navigationBarTitleText":"社区图片"
+			}
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "white",
