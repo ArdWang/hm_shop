@@ -40,6 +40,12 @@
 				"navigationBarTitleText":"社区图片"
 			}
         }
+        ,{
+            "path" : "pages/news-detail/news-detail",
+            "style" : {
+				"navigationBarTitleText":"资讯详情"
+			}
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "white",
