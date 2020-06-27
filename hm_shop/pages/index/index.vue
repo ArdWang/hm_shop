@@ -16,7 +16,7 @@
 		<!--推荐商品区域-->
 		<view class="hot_goods">
 			<view class="tit">推荐商品</view>
-			<goods-list :goods="goods"></goods-list>
+			<goods-list :goods="goods" @goodsItemClick="getGoodsDetail"></goods-list>
 		</view>
 	</view>
 </template>
@@ -83,7 +83,14 @@
 				uni.navigateTo({
 					url
 				})
+			},
+			//跳转到导航商品详情页面
+			getGoodsDetail(id){
+				uni.navigateTo({
+					url:'/pages/goods-detail/goods-detail?id='+id
+				})
 			}
+			
 		}
 	}
 </script>
