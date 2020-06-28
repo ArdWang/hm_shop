@@ -47,5 +47,10 @@
 	  content: "\e60d";
 	}
 	
+	.gomeImgLoad{
+		width: 750rpx !important;
+		height: auto;
+	}
+	
 
 </style>
